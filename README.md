@@ -27,7 +27,7 @@
 
     <!-- load our react component. -->
     <script src="context.js" defer type="text/babel"></script>
-    <script src="navbar.js" defer type="text/babel"></script>
+    <script src="./navbar.js" defer type="text/babel"></script>
     <script>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">BadBank</a>
