@@ -28,7 +28,8 @@
     <!-- load our react component. -->
     <script src="context.js" defer type="text/babel"></script>
     <script src="navbar.js" defer type="text/babel"></script>
-    <script type="text/javascript"> function NavBar(){
+    <script>
+    function NavBar(){
   return(
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
