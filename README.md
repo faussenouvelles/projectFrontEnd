@@ -36,7 +36,7 @@
     <script src="alldata.js" defer type="text/babel"></script>
     <script src="home.js" defer type="text/babel"></script>
     <script src="index.js" defer type="text/babel"></script>
-    
+    <script>
     function Spa() {
   return (
     <HashRouter>
@@ -60,5 +60,6 @@ ReactDOM.render(
   <Spa/>,
   document.getElementById('root')
 );
+    </script>
   </body>
 </html>
