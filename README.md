@@ -149,13 +149,96 @@ function Card(props){
 }
       
     </script>
-    <script src="login.js" defer type="text/babel"></script>
-    <script src="deposit.js" defer type="text/babel"></script>
-    <script src="withdraw.js" defer type="text/babel"></script>
-    <script src="balance.js" defer type="text/babel"></script>
-    <script src="alldata.js" defer type="text/babel"></script>
-    <script src="home.js" defer type="text/babel"></script>
-    <script src="index.js" defer type="text/babel"></script>
+  
+    <script src="login.js" defer type="text/babel">
+  function Login(){
+  return (
+    <h1>Login</h1>
+  )  
+}
+
+      
+  </script>
+  
+    <script src="deposit.js" defer type="text/babel">
+  function Deposit(){
+  return (
+    <h1>Deposit</h1>
+  )
+}
+      
+  </script>
+  
+    <script src="withdraw.js" defer type="text/babel">
+      function Withdraw(){
+  return (
+    <h1>Withdraw</h1>
+  )
+}
+      
+  </script>
+  
+    <script src="balance.js" defer type="text/babel">
+      function Balance(){
+  return (
+    <h1>Balance</h1>
+  )
+}
+  
+  </script>
+  
+    <script src="alldata.js" defer type="text/babel">
+  function AllData(){
+  const ctx = React.useContext(UserContext);
+  return (
+    <>
+    <h5>All Data in Store</h5>
+    {JSON.stringify(ctx)}<br/>
+    </>
+  );
+}
+  </script>
+  
+    <script src="home.js" defer type="text/babel">
+  function Home(){
+  return (
+    <Card
+      txtcolor="black"
+      header="BadBank Landing Module"
+      title="Welcome to the bank"
+      text="You can move around using the navigation bar."
+      body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
+    />    
+  );  
+}
+  </script>
+  
+    <script src="index.js" defer type="text/babel">
+  function Spa() {
+  return (
+    <HashRouter>
+      <NavBar/>
+      <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
+        <div className="container" style={{padding: "20px"}}>
+          <Route path="/" exact component={Home} />
+          <Route path="/CreateAccount/" component={CreateAccount} />
+          <Route path="/login/" component={Login} />
+          <Route path="/deposit/" component={Deposit} />
+          <Route path="/withdraw/" component={Withdraw} />
+          <Route path="/balance/" component={Balance} />
+          <Route path="/alldata/" component={AllData} />
+        </div>
+      </UserContext.Provider>      
+    </HashRouter>
+  );
+}
+
+ReactDOM.render(
+  <Spa/>,
+  document.getElementById('root')
+);
+
+  </script>
 
   </body>
 </html>
