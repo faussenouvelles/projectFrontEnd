@@ -26,7 +26,31 @@
     <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
 
     <!-- load our react component. -->
-    <script src="context.js" defer type="text/babel"></script>
+    <script src="context.js" defer type="text/babel"> const Route       = ReactRouterDOM.Route;
+const Link        = ReactRouterDOM.Link;
+const HashRouter  = ReactRouterDOM.HashRouter;
+const UserContext = React.createContext(null);
+
+function Card(props){
+    function classes(){
+      const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
+      const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-white';
+      return 'card mb-3 ' + bg + txt;
+    }
+  
+    return (
+      <div className={classes()} style={{maxWidth: "18rem"}}>
+        <div className="card-header">{props.header}</div>
+        <div className="card-body">
+          {props.title && (<h5 className="card-title">{props.title}</h5>)}
+          {props.text && (<p className="card-text">{props.text}</p>)}
+          {props.body}
+          {props.status && (<div id='createStatus'>{props.status}</div>)}
+        </div>
+      </div>      
+    );    
+  }</script>
+    
     <script src="navbar.js" defer type="text/babel"></script>
     <script src="createaccount.js" defer type="text/babel"></script>
     <script src="login.js" defer type="text/babel"></script>
@@ -36,30 +60,6 @@
     <script src="alldata.js" defer type="text/babel"></script>
     <script src="home.js" defer type="text/babel"></script>
     <script src="index.js" defer type="text/babel"></script>
-    <script>
-    function Spa() {
-  return (
-    <HashRouter>
-      <NavBar/>
-      <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
-        <div className="container" style={{padding: "20px"}}>
-          <Route path="/" exact component={Home} />
-          <Route path="/CreateAccount/" component={CreateAccount} />
-          <Route path="/login/" component={Login} />
-          <Route path="/deposit/" component={Deposit} />
-          <Route path="/withdraw/" component={Withdraw} />
-          <Route path="/balance/" component={Balance} />
-          <Route path="/alldata/" component={AllData} />
-        </div>
-      </UserContext.Provider>      
-    </HashRouter>
-  );
-}
 
-ReactDOM.render(
-  <Spa/>,
-  document.getElementById('root')
-);
-    </script>
   </body>
 </html>
