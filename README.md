@@ -25,7 +25,7 @@
 
     <!-- load our react component. -->
     <script src="https://faussenouvelles.github.io/context/" defer type="text/babel"></script>
-    <script src="navbar.js" defer type="text/babel"></script>
+    <script src="https://raw.githubusercontent.com/faussenouvelles/navbar/main/navbar.js" defer type="text/babel"></script>
     <script src="createaccount.js" defer type="text/babel"></script>
     <script src="login.js" defer type="text/babel"></script>
     <script src="deposit.js" defer type="text/babel"></script>
